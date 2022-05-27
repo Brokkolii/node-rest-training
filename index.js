@@ -1,16 +1,24 @@
-const express = require("express");
-const app = express();
+const app = require("./app");
 const config = require("./config");
-
-//const cors = require('cors');
-//app.use(cors({
-//  origin: 'https://www.section.io'
-//}));
+const db = require("./db");
 
 
 app.get('/', (request, response) => {
-  response.status(200).send({
-    test: true,
+  response.status(200).send("erfolgreich verbunden!");
+});
+
+app.get('/USERS', (request, response) => {
+  const query = 'SELECT * FROM "USERS"';
+  db.query(query, (err, res) => {
+    console.log(err);
+    console.log(res);
+    try {
+      const result = res.rows;
+      response.status(200).send(result);
+    } catch (err) {
+      console.log(err);
+      response.status(500);
+    }
   })
 });
 
