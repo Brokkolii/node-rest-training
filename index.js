@@ -19,7 +19,7 @@ app.get('/USERS', (request, response) => {
       response.status(200).send(result);
     } catch (err) {
       console.log(err);
-      response.status(500);
+      response.status(500).send();
     }
   })
 });
