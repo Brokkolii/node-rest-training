@@ -4,7 +4,7 @@ const db = require("./db");
 
 
 app.get('/', (request, response) => {
-  response.status(200).send("erfolgreich verbunden!");
+  response.status(200).send("Erfolgreich verbunden!");
 });
 
 app.get('/USERS', (request, response) => {
