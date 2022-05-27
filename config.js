@@ -1,4 +1,4 @@
-let config = {
+const config = {
   port: 8080,
 }
 
